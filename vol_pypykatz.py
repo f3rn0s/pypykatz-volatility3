@@ -18,8 +18,7 @@ vollog = logging.getLogger(__name__)
 
 
 class pypykatz(interfaces.plugins.PluginInterface):
-
-    _required_framework_version = (1, 0, 0)
+    _required_framework_version = (2, 0, 0)
 
     @classmethod
     def get_requirements(cls) -> List[interfaces.configuration.RequirementInterface]:
@@ -38,18 +37,5 @@ class pypykatz(interfaces.plugins.PluginInterface):
         ]
 
     def run(self):
-        return renderers.TreeGrid(
-            [
-                ("Credential Type", str),
-                ("Domain Name", str),
-                ("Username", str),
-                ("NThash", str),
-                ("LMHash", str),
-                ("SHAHash", str),
-                ("masterkey", str),
-                ("masterkey (sha1)", str),
-                ("key_guid", str),
-                ("password", str),
-            ],
-            pparser.go_volatility3(self),
-        )
+        return pparser.go_volatility3(self)
+
