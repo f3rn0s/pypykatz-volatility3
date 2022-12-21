@@ -1,8 +1,10 @@
 # pypykatz-volatility3
-pypykatz plugin for volatility3 framework
+Updated pypykatz plugin for volatility3 framework.
 
-# Install
-install `pypykatz=>0.3.3`  via either `pip` or `setup.py install`  
-install `volatility3` via either `pip` or `setup.py install`  
-Run command `vol.py -f memory.dump -p <pypykatz-volatility3_folder> pypykatz`  
+`vol_pypykatz` dumps the full output.
+`vol_shortkatz` dumps just NT and LM hashes.
 
+```bash
+$ vol -p "$(pwd)/pypykatz-volatility3" -f memory.vmem vol_pypykatz
+$ vol -p "$(pwd)/pypykatz-volatility3" -f memory.vmem vol_shortkatz
+```
